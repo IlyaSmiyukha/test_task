@@ -14,7 +14,7 @@ const wETH_ADDRESS = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
 const ORACLE_ADDRESS = "0x6385892aCB085eaa24b745a712C9e682d80FF681";
 
 export const useOracle = () => {
-  const signer = useEthersSigner({ chainId: 1337 });
+  const signer = useEthersSigner();
   const connectToOraclePool = async () => {
     try {
       if (signer) {

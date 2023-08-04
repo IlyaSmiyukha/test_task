@@ -2,9 +2,10 @@ import React, { Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import { Header } from "../components/Header";
+import { isDev } from "../config";
 import { MigrateScreen } from "./MigrateScreen";
 import { PoolsListScreen } from "./PoolsListScreen";
-
+console.log(isDev);
 export function Router(): React.ReactElement {
   return (
     <Suspense fallback="Loading...">

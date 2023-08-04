@@ -40,7 +40,7 @@ enum TransactionState {
 
 export const useTrade = () => {
   const { address } = useWeb3();
-  const signer = useEthersSigner({ chainId: 1337 });
+  const signer = useEthersSigner();
   const { convertToEth } = useOracle();
   const { isSuccess, sendTransactionAsync } = useSendTransaction();
 

@@ -1,3 +1,4 @@
+import { CHAINS } from "@gearbox-protocol/sdk";
 import { providers } from "ethers";
 import * as React from "react";
 import { type HttpTransport } from "viem";
@@ -7,6 +8,8 @@ import {
   usePublicClient,
   useWalletClient,
 } from "wagmi";
+
+import { isDev } from "../config";
 
 // feel free to remove this file if you don't use wagmi 2+ with ethers
 
@@ -46,8 +49,10 @@ export function walletClientToSigner(walletClient: WalletClient) {
   return signer;
 }
 
-export function useEthersSigner({ chainId }: { chainId?: number } = {}) {
-  const { data: walletClient } = useWalletClient({ chainId });
+export function useEthersSigner() {
+  const { data: walletClient } = useWalletClient({
+    chainId: isDev ? CHAINS.Local : CHAINS.Mainnet,
+  });
   return React.useMemo(
     () => (walletClient ? walletClientToSigner(walletClient) : undefined),
     [walletClient],

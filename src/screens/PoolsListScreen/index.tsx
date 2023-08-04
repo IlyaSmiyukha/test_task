@@ -10,7 +10,7 @@ import { useProviderTools, useWeb3 } from "../../hooks/useWeb3";
 export function PoolsListScreen(): React.ReactElement {
   const tools = useProviderTools();
   const list = usePoolsList(tools);
-  const signer = useEthersSigner({ chainId: 1337 });
+  const signer = useEthersSigner();
   const { address } = useWeb3();
 
   return (
